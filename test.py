@@ -7,10 +7,10 @@ df[["indic", "s_adj", "unit", "geo\\time"]].describe()
 test_value_of_germany = df[df["indic"].eq("BS-CSMCI") & df["unit"].eq("BAL") & df["s_adj"].eq("NSA") & df["geo\\time"]]
 test_value_of_germany = test_value_of_germany.drop(columns=['indic', 's_adj', 'unit'])
 test_value_of_germany = test_value_of_germany.set_index('geo\\time')
+test_value_of_germany = test_value_of_germany.loc['DE']
 
 print(test_value_of_germany)
-print(test_value_of_germany.loc['DE'])
 
-test_value_of_germany.loc['DE'].plot.line()
+test_value_of_germany.plot.line()
 
 plt.show()
